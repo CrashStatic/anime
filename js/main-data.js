@@ -1,5 +1,16 @@
 const mainData = () => {
 
+    const renderGanreList = (ganres) => {
+        const dropdownBlock = document.querySelector('.header__menu .dropdown');
+        dropdownBlock.innerHTML = '';
+
+        ganres.forEach(ganre => {
+            dropdownBlock.insertAdjacentHTML('beforeend', `
+                <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>
+            `)
+        })
+    }
+
     const renderAnimeList = (array, ganres) => {
         const wrapper = document.querySelector('.product .col-lg-8');
         wrapper.innerHTML = '';
@@ -13,7 +24,7 @@ const mainData = () => {
             productBlock.classList.add('mb-5');
 
 
-            productBlock.insertAdjacentHTML('afterbegin', `
+            productBlock.insertAdjacentHTML('beforeend', `
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8">
                         <div class="section-title">
@@ -37,7 +48,7 @@ const mainData = () => {
                     `)
                 })
 
-                listBlock.insertAdjacentHTML('afterbegin', `
+                listBlock.insertAdjacentHTML('beforeend', `
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="${item.image}">
@@ -95,6 +106,7 @@ const mainData = () => {
             })
 
             renderAnimeList(data, ganres);
+            renderGanreList(ganres);
         })
 };
 
