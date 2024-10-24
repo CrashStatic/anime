@@ -1,4 +1,6 @@
 const categoriesData = () => {
+    const preloder = document.querySelector('.preloder');
+    
     const renderGanreList = (ganres) => {
         const dropdownBlock = document.querySelector('.header__menu .dropdown');
 
@@ -86,6 +88,10 @@ const categoriesData = () => {
 		wrapper.querySelectorAll('.set-bg').forEach((elem) => {
 			elem.style.backgroundImage = `url(${elem.dataset.setbg})`
 		})
+
+        setTimeout(() => {
+            preloder.classList.remove('active');
+        }, 500)
     }
 
     fetch('https://anime-97035-default-rtdb.firebaseio.com/anime.json')

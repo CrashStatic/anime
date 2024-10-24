@@ -1,4 +1,5 @@
 const mainData = () => {
+    const preloder = document.querySelector('.preloder');
 
     const renderGanreList = (ganres) => {
         const dropdownBlock = document.querySelector('.header__menu .dropdown');
@@ -69,6 +70,10 @@ const mainData = () => {
             productBlock.append(listBlock);
             wrapper.append(productBlock);
         })
+
+        setTimeout(() => {
+            preloder.classList.remove('active');
+        }, 500)
     }
 
     const renderTopAnime = (array) => {
