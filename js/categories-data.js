@@ -1,12 +1,12 @@
 const categoriesData = () => {
     const preloder = document.querySelector('.preloder');
-    
+
     const renderGanreList = (ganres) => {
         const dropdownBlock = document.querySelector('.header__menu .dropdown');
 
         ganres.forEach(ganre => {
             dropdownBlock.insertAdjacentHTML('beforeend', `
-                <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>
+                <li><a href="/categories.html?ganre=${ganre}">${ganre}</a></li>
             `)
         })
     }
